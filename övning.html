@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <style>
+        body{
+            margin: 0px;
+        }
+        html{
+            background-image: url(https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_77215ea1b454c08a75351a74585a5b089142da3e.1920x1080.jpg?t=1668125812);
+
+        }
+        p{
+            font-size:4vw;
+            text-align: center;
+            font-family: Counter-Strike;
+            color: white;
+            text-shadow: 2px 2px black;
+        }
+        input[type='checkbox'] {
+    width:3vw;
+    height:3vw;
+    display: block;
+    margin: auto;
+        }
+        input{
+    margin: auto;
+    display: block;
+    transition-duration: 500ms;
+    font-size: 4vw;
+}
+h4{
+    margin: auto;
+    text-align: center;
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+input:hover{
+    font-size: 5vw;
+        }
+.Klickbar{
+     transform: scale(2.2); 
+ }
+ @keyframes flashbang {
+    0%{
+        opacity: 0;
+    }
+    65%{
+        opacity: 0;
+    }
+    68%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+    }
+ }
+ #Flash{
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    animation: flashbang 10s infinite;
+ }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        function f(){
+            var i = 0
+            var kolla = document.getElementById("1")
+            var kolla2 = document.getElementById("2")
+
+            if (kolla.checked){
+                i = i + 1
+            } 
+            if(kolla2.checked){
+                    i = i + 1
+                }
+                
+            if (i==2){
+                alert("Du fick båda rätt.")
+            }else {
+                if (i==1){
+                    alert("Du fick en rätt.")
+                }
+            }
+        }
+
+        function läggtillfråga(question) {
+        var container = document.getElementById("Container")
+        var p = document.createElement("p")
+        p.textContent = question
+        container.appendChild(p)
+    }
+    function go(){
+        läggtillfråga("Ny fråga?")
+    }
+    </script>
+</head>
+<body>
+    <button onclick="go()">Test</button>
+<div id="Flash"></div>
+<p>Vad kostar AWP?</p> 
+     <h4>4000</h3><input id="" class="Klickbar"type="radio" name="test" value="fel">
+      <h4>4750</h4><input id="1" class="Klickbar"type="radio"name="test" value="rätt">
+      <h4>5000</h4><input id="" class="Klickbar"type="radio"name="test" value="fel">
+      <br>
+
+      <p>Vad kostar en AK & Head armour?</p> 
+      <h4>3700</h4><input id="2" class="Klickbar" type="radio" name="test2" value="rätt">
+      <h4>4000</h4><input id="" class="Klickbar"type="radio" name="test2" value="fel">
+     <h4> 4250</h4><input id="" class="Klickbar"type="radio" name="test2" value="fel">
+      <br>
+
+    <input type="submit" onclick="f()" value="Gissa nu!">
+
+</form>
+<div id="Container">
+
+    
+</div>
+</body>
+</html>
